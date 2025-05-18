@@ -30,7 +30,6 @@
 
 /* Light Mode Input Styling */
 
-
 /* Dark Mode Scrollbar */
 body.dark ::-webkit-scrollbar-track {
   background: #1f2937; /* dark gray */
@@ -46,7 +45,7 @@ body.dark ::-webkit-scrollbar-thumb:hover {
 
 /* Custom Layout Padding */
 .home {
-  padding-top: 100px;
+  padding-top: 200px;
 }
 
 .user-progress-tracking {
@@ -104,7 +103,6 @@ body.dark .text-white {
   color: #f1f5f9 !important;
 }
 
-
 input,
 textarea,
 select {
@@ -159,4 +157,12 @@ body.dark select:focus {
 
 body.dark .bg-green-50 {
   background-color: #0f2f23 !important; /* a very dark greenish tone */
+}
+
+body.dark .from-green-50-to-white {
+  background: linear-gradient(
+    to right,
+    #0f2f23,
+    #1e293b
+  ); /* dark green to dark slate */
 }

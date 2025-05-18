@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <main className="home bg-gradient-to-br from-green-50 to-white px-4 py-10">
+      <main className="home bg-gradient-to-br  px-4 py-10">
         <div className="max-w-6xl mx-auto">
           <header className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-green-700 mb-4">
