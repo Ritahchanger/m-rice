@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from "next/font/google";
+import { ThemeProvider } from "@/context/ThemeContext/ThemeContext";
+
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -8,8 +10,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "M & E",
-  description: "M & E automation",
+  title: "M & E | Meru University",
+  description: "Monitoring & Evaluation Automation System",
 };
 
 export default function RootLayout({
@@ -19,8 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={outfit.variable}>
-      <body className="antialiased">
-        {children}
+      <body className="font-sans antialiased bg-white text-gray-900">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
