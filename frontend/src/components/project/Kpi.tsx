@@ -1,0 +1,143 @@
+"use client";
+
+import React from "react";
+
+interface KPI {
+  title: string;
+  definition: string;
+  value: number | "N/A";
+  explanation: string;
+}
+
+interface KPIFormProps {
+  kpis: KPI[];
+  onChange: (updatedKPIs: KPI[]) => void;
+  onComplete: () => void;
+}
+
+const KPIForm: React.FC<KPIFormProps> = ({ kpis, onChange }) => {
+  const handleChange = (
+    index: number,
+    field: keyof KPI,
+    value: string | number
+  ) => {
+    const updated = [...kpis];
+    updated[index] = { ...updated[index], [field]: value };
+    onChange(updated);
+  };
+
+  const addKPI = () => {
+    onChange([
+      ...kpis,
+      {
+        title: "",
+        definition: "",
+        value: "N/A",
+        explanation: "",
+      },
+    ]);
+  };
+
+  const removeKPI = (index: number) => {
+    const updated = kpis.filter((_, i) => i !== index);
+    onChange(updated);
+  };
+
+  return (
+    <div className="bg-green-50 p-6 rounded-xl border border-green-300 shadow mt-6">
+      <h2 className="text-2xl font-bold text-green-700 border-b border-green-300 pb-2 mb-4">
+        10. Key Performance Indicators (KPIs)
+      </h2>
+
+      {kpis.map((kpi, index) => (
+        <div
+          key={index}
+          className="bg-white p-4 rounded-lg border border-green-200 mb-4"
+        >
+          <div className="flex justify-between items-center mb-2">
+            <h4 className="font-semibold text-green-700">KPI #{index + 1}</h4>
+            <button
+              className="text-red-500 hover:underline text-sm"
+              onClick={() => removeKPI(index)}
+            >
+              Remove
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-green-700 font-medium mb-1">
+                Title
+              </label>
+              <input
+                type="text"
+                className="w-full border border-green-300 rounded-md px-3 py-2"
+                value={kpi.title}
+                onChange={(e) => handleChange(index, "title", e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label className="block text-green-700 font-medium mb-1">
+                Definition
+              </label>
+              <input
+                type="text"
+                className="w-full border border-green-300 rounded-md px-3 py-2"
+                value={kpi.definition}
+                onChange={(e) =>
+                  handleChange(index, "definition", e.target.value)
+                }
+              />
+            </div>
+
+            <div>
+              <label className="block text-green-700 font-medium mb-1">
+                Value
+              </label>
+              <input
+                type="text"
+                placeholder="e.g., 75 or N/A"
+                className="w-full border border-green-300 rounded-md px-3 py-2"
+                value={kpi.value}
+                onChange={(e) => {
+                  const input = e.target.value;
+                  handleChange(
+                    index,
+                    "value",
+                    isNaN(Number(input)) ? input : Number(input)
+                  );
+                }}
+              />
+            </div>
+
+            <div>
+              <label className="block text-green-700 font-medium mb-1">
+                Explanation
+              </label>
+              <textarea
+                className="w-full border border-green-300 rounded-md px-3 py-2"
+                value={kpi.explanation}
+                onChange={(e) =>
+                  handleChange(index, "explanation", e.target.value)
+                }
+                rows={3}
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <div className="mt-4">
+        <button
+          className="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+          onClick={addKPI}
+        >
+          + Add KPI
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default KPIForm;
