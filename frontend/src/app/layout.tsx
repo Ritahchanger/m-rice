@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from "next/font/google";
-
+import Navbar from "@/components/Navbar";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -9,8 +9,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Your App Name",
-  description: "Your app description here",
+  title: "M & E",
+  description: "M & E automation",
 };
 
 export default function RootLayout({
@@ -20,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={outfit.variable}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
