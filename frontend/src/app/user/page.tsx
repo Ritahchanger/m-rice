@@ -9,6 +9,19 @@ import RisksForm from "@/components/project/Risk";
 import FinalSubmitCheck from "@/components/project/Submit";
 import TestimonialsForm from "@/components/project/Testmonials";
 
+import { IResult } from "@/types/user_accounts/IResult";
+
+import { IKpi } from "@/types/user_accounts/IKpi";
+
+import { IActivity } from "@/types/user_accounts/IActivity";
+
+import { IRisk } from "@/types/user_accounts/IRisk";
+
+import { ITestimonial } from "@/types/user_accounts/Itestmonial";
+
+
+
+
 const Page = () => {
   const [currentStage, setCurrentStage] = useState<number>(1);
   const [completedStages, setCompletedStages] = useState<number[]>([]);
@@ -21,15 +34,16 @@ const Page = () => {
     dateSubmitted: "",
   });
 
-  const [activities, setActivities] = useState<Activity[]>([]);
+  const [activities, setActivities] = useState<IActivity[]>([]);
 
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
 
-  const [results, setResults] = useState<Result[]>([]);
+  const [results, setResults] = useState<IResult[]>([]);
 
-  const [risks, setRisks] = useState<Risk[]>([]);
 
-  const [kpis, setKpis] = useState<Kpi[]>([]);
+  const [risks, setRisks] = useState<IRisk[]>([]);
+
+  const [kpis, setKpis] = useState<IKpi[]>([]);
 
   const checks = {
     activities: activities.length > 0,
