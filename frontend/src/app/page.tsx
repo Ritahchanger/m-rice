@@ -1,144 +1,79 @@
 "use client";
-import React, { useState } from "react";
-import StageToolbar from "@/components/StageToolbar";
-import ProjectDetailsForm from "@/components/project/ProjectDetails";
-import ActivitiesForm from "@/components/project/Activities";
-import KPIForm from "@/components/project/Kpi";
-import ResultsForm from "@/components/project/Results";
-import RisksForm from "@/components/project/Risk";
-import FinalSubmitCheck from "@/components/project/Submit";
-import TestimonialsForm from "@/components/project/Testmonials";
 
-const Page = () => {
-  const [currentStage, setCurrentStage] = useState<number>(1);
-  const [completedStages, setCompletedStages] = useState<number[]>([]);
+import React from "react";
+import Link from "next/link";
 
-  const [projectDetails, setProjectDetails] = useState({
-    programme: "",
-    projectName: "",
-    reference: "",
-    reportingPeriod: "",
-    dateSubmitted: "",
-  });
-
-  const [activities, setActivities] = useState<Activity[]>([]);
-
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-
-  const [results, setResults] = useState<Result[]>([]);
-
-  const [risks, setRisks] = useState<Risk[]>([]);
-
-  const [kpis, setKpis] = useState<Kpi[]>([]);
-
-  const checks = {
-    activities: activities.length > 0,
-    results: results.length > 0,
-    testimonials: testimonials.length > 0,
-    academicSecondments: false,
-    industrySecondments: false,
-    risks: risks.length > 0,
-    kpis: kpis.length > 0,
-    budget: projectDetails.programme !== "",
-    gantt: false,
-    photos: false,
-  };
-
-  const handleStageCompletion = () => {
-    if (!completedStages.includes(currentStage)) {
-      setCompletedStages((prev) => [...prev, currentStage]);
-    }
-    setCurrentStage((prev) => prev + 1);
-  };
-
-  const renderStageComponent = () => {
-    switch (currentStage) {
-      case 1:
-        return (
-          <ProjectDetailsForm
-            details={projectDetails}
-            onChange={setProjectDetails}
-            onComplete={handleStageCompletion}
-          />
-        );
-      case 2:
-        return (
-          <ActivitiesForm
-            activities={activities}
-            onChange={setActivities}
-            onComplete={handleStageCompletion} // if supported
-          />
-        );
-      case 3:
-        return (
-          <ResultsForm
-            results={results}
-            onChange={setResults}
-            onComplete={handleStageCompletion} // if supported
-          />
-        );
-      case 4:
-        return (
-          <TestimonialsForm
-            testimonials={testimonials}
-            onChange={setTestimonials}
-            onComplete={handleStageCompletion}
-          />
-        );
-      case 5:
-        return (
-          <RisksForm
-            risks={risks}
-            onChange={setRisks}
-            onComplete={handleStageCompletion}
-          />
-        );
-      case 6:
-        return (
-          <KPIForm
-            kpis={kpis}
-            onChange={setKpis}
-            onComplete={handleStageCompletion}
-          />
-        );
-      case 7:
-        return (
-          <FinalSubmitCheck
-            checks={checks}
-            onSubmit={() => {
-              alert("Report submitted to admin!");
-              // Add your submit logic here
-            }}
-          />
-        );
-      default:
-        return (
-          <p className="text-green-700 font-medium">All stages completed!</p>
-        );
-    }
-  };
-
+const HomePage = () => {
   return (
-    <div className="p-6">
-      <StageToolbar
-        currentStage={currentStage}
-        completedStages={completedStages}
-        setCurrentStage={setCurrentStage}
-      />
+    <main className="home bg-gradient-to-br from-green-50 to-white px-4 py-10">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <header className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-green-700 mb-4">
+            Meru University Project Grants Management System
+          </h1>
+          <p className="text-lg text-gray-700">
+            Empowering innovation and research through structured project
+            funding.
+          </p>
+        </header>
 
-      <div className="mt-8 p-6 bg-white rounded-md shadow border border-neutral-200">
-        <h1 className="text-xl font-semibold mb-4 text-green-700">
-          Stage {currentStage}
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Fill in the details for{" "}
-          <span className="font-medium">Stage {currentStage}</span> here.
-        </p>
+        {/* Main Features Section */}
+        <section className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="bg-white shadow-lg rounded-xl p-6 border border-green-200">
+            <h3 className="text-xl font-semibold text-green-700 mb-2">
+              Submit Proposals
+            </h3>
+            <p className="text-gray-600">
+              Easily submit your research or innovation project proposals for
+              review and funding consideration.
+            </p>
+          </div>
 
-        {renderStageComponent()}
+          <div className="bg-white shadow-lg rounded-xl p-6 border border-green-200">
+            <h3 className="text-xl font-semibold text-green-700 mb-2">
+              Track Applications
+            </h3>
+            <p className="text-gray-600">
+              Monitor your project’s funding status and stay updated on every
+              stage from submission to approval.
+            </p>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold text-green-800 mb-4">
+            Ready to get started?
+          </h2>
+          <p className="text-gray-600 mb-6">
+            Whether you're a student or staff, start your journey toward
+            innovation today.
+          </p>
+          <div className="flex justify-center gap-4">
+            <Link
+              href="/auth/login"
+              className="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-md shadow"
+            >
+              Login
+            </Link>
+            <Link
+              href="/user"
+              className="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-md shadow"
+            >
+              Progress reporting
+            </Link>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="mt-20 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} Meru University of Science and
+          Technology. All rights reserved.
+        </footer>
       </div>
-    </div>
+    </main>
   );
 };
 
-export default Page;
+export default HomePage;

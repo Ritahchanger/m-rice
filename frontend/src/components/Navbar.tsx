@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <header className="bg-emerald-600 text-white shadow-md">
+    <header className="bg-emerald-600 text-white shadow-md fixed top-0 right-0 left-0 w-full">
       <div className="mx-auto px-4 py-3 flex items-center justify-between">
         <div className="text-xl font-semibold tracking-wide">🌿 M & E</div>
         {/* <nav className="hidden md:flex gap-6 text-sm">

@@ -26,3 +26,10 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #059669;
 }
+
+.home {
+  padding-top: 100px;
+}
+.user-progress-tracking {
+  padding-top: 700px;
+}
