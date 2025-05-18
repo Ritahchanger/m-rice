@@ -14,7 +14,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="bg-emerald-600 text-white shadow-md fixed top-0 right-0 left-0 w-full z-50">
+    <header className="bg-green-600 text-white shadow-md fixed top-0 right-0 left-0 w-full z-50">
       <div className="mx-auto px-4 py-3 flex items-center justify-between">
         <div className="text-xl font-semibold tracking-wide">🌿 M & E</div>
 

@@ -13,7 +13,7 @@ interface ProjectDetails {
 interface ProjectDetailsFormProps {
   details: ProjectDetails;
   onChange: (updatedDetails: ProjectDetails) => void;
-  onComplete: () => void; // <-- add this
+  onComplete: () => void;
 }
 
 const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
@@ -29,7 +29,6 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Simple validation
     if (
       !details.programme ||
       !details.projectName ||
@@ -37,64 +36,65 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
       !details.reportingPeriod ||
       !details.dateSubmitted
     ) {
-      alert("Please fill in all fields.");
+      alert("🚫 Please fill in all fields.");
       return;
     }
 
-    onComplete(); // Move to next stage
+    onComplete();
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 bg-green-50 shadow-lg p-6 rounded-xl border border-green-300"
+      className="space-y-6 bg-gradient-to-br from-green-100 via-white to-green-50  p-6 rounded-2xl "
     >
-      <h2 className="text-2xl font-bold text-green-700 border-b border-green-300 pb-2">
-        1. Project Details
+      <h2 className="text-3xl font-extrabold text-green-700 border-b border-green-300 pb-2">
+        📋 1. Project Details
       </h2>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-semibold text-green-800">
-            Programme
+            🎯 Programme
           </label>
           <input
             type="text"
             name="programme"
             value={details.programme}
             onChange={handleChange}
-            className="mt-1 block w-full border border-green-400 rounded-md p-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
           />
         </div>
 
         <div>
           <label className="block text-sm font-semibold text-green-800">
-            Project Name
+            🏗️ Project Name
           </label>
           <input
             type="text"
             name="projectName"
             value={details.projectName}
             onChange={handleChange}
-            className="mt-1 block w-full border border-green-400 rounded-md p-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
           />
         </div>
 
         <div>
           <label className="block text-sm font-semibold text-green-800">
-            Reference
+            🧾 Reference
           </label>
           <input
             type="text"
             name="reference"
             value={details.reference}
             onChange={handleChange}
-            className="mt-1 block w-full border border-green-400 rounded-md p-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
           />
         </div>
 
         <div>
           <label className="block text-sm font-semibold text-green-800">
-            Reporting Period
+            📅 Reporting Period
           </label>
           <input
             type="text"
@@ -102,31 +102,39 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
             value={details.reportingPeriod}
             onChange={handleChange}
             placeholder="e.g. Jan 2024 - Mar 2024"
-            className="mt-1 block w-full border border-green-400 rounded-md p-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
           />
         </div>
 
         <div>
           <label className="block text-sm font-semibold text-green-800">
-            Date Submitted
+            📌 Date Submitted
           </label>
           <input
             type="date"
             name="dateSubmitted"
             value={details.dateSubmitted}
             onChange={handleChange}
-            className="mt-1 block w-full border border-green-400 rounded-md p-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
           />
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-sm"
-        onClick={onComplete}
-      >
-        Submit & Continue
-      </button>
+      <div className="flex gap-4">
+        <button
+          type="submit"
+          className="mt-6 bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white font-semibold px-8 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+        >
+          ✅ Submit
+        </button>
+        <button
+          type="submit"
+          onClick={onComplete}
+          className="mt-6 bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white font-semibold px-8 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+        >
+          ✅ Save & Continue
+        </button>
+      </div>
     </form>
   );
 };
