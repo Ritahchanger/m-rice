@@ -103,30 +103,10 @@ body.dark .text-white {
   color: #e0e0e0 !important; /* light gray text */
 }
 
-input,
-textarea,
-select {
-  border: 1px solid #6ee7b7; /* emerald-300 */
-  border-radius: 0.375rem; /* rounded-md */
-  padding: 0.5rem 0.75rem; /* py-2 px-3 */
-  font-size: 0.875rem; /* text-sm */
-  color: #1f2937; /* gray-800 */
-  background-color: #ffffff;
-  outline: none;
-  transition: all 0.2s ease-in-out;
-}
-
 input::placeholder,
 textarea::placeholder,
 select::placeholder {
   color: #9ca3af;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #10b981; /* emerald-500 */
-  box-shadow: 0 0 0 2px #10b981; /* focus:ring-2 */
 }
 
 /* Dark Mode Input Styling */
@@ -138,7 +118,7 @@ body.dark select {
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   color: #e0e0e0; /* lighter text */
-  background-color: #121212; /* very dark background */
+  background-color: #121212; 
   transition: all 0.2s ease-in-out;
 }
 
@@ -169,4 +149,21 @@ body.dark .from-green-50-to-white {
 
 body.dark .border-green-300 {
   border-color: #134d13 !important; /* dark green border */
+}
+
+body .login input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+body.dark .login input {
+  background: transparent;
+  outline: none;
+}
+body.dark .login input:focus,
+body.dark .login textarea:focus,
+body.dark .login  select:focus {
+  border:none;
+  box-shadow:none;
 }

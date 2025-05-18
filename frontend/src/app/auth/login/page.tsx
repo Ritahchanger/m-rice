@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Lock } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -10,6 +10,7 @@ const LoginPage = () => {
   const [errors, setErrors] = useState<{ email?: string; password?: string }>(
     {}
   );
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,14 +22,13 @@ const LoginPage = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      
       console.log({ email, password, rememberMe });
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 p-4">
-      <div className="w-full max-w-md bg-white rounded-sm shadow-lg p-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 p-4 login">
+      <div className="w-full max-w-[600px] bg-white rounded-sm shadow-lg p-8">
         <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">
           WELCOME BACK
         </h2>
@@ -38,17 +38,25 @@ const LoginPage = () => {
             <label className="block mb-1 text-green-800 font-medium">
               Email
             </label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-green-600" />
+            <div
+              className={`relative w-full pl-12 pr-4 h-[40px] border rounded-lg focus:outline-none focus:ring-2 ${
+                errors.email
+                  ? "border-red-400 ring-red-300"
+                  : "border-green-400 ring-green-200"
+              }`}
+            >
+              <Mail
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-green-600"
+                size={20}
+              />
               <input
                 type="email"
+                className="email-input"
                 value={email}
+                style={{
+                  border: "none",
+                }}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
-                  errors.email
-                    ? "border-red-400 ring-red-300"
-                    : "border-green-400 ring-green-200"
-                }`}
                 placeholder="you@example.com"
               />
             </div>
@@ -62,19 +70,35 @@ const LoginPage = () => {
             <label className="block mb-1 text-green-800 font-medium">
               Password
             </label>
-            <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-green-600" />
+            <div
+              className={`w-full pl-12 pr-12 relative h-[40px] border rounded-lg focus:outline-none focus:ring-2 ${
+                errors.password
+                  ? "border-red-400 ring-red-300"
+                  : "border-green-400 ring-green-200"
+              }`}
+            >
+              <Lock
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-green-600"
+                size={20}
+              />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={password}
+                className="password-input"
+                style={{
+                  border: "none",
+                }}
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
-                  errors.password
-                    ? "border-red-400 ring-red-300"
-                    : "border-green-400 ring-green-200"
-                }`}
                 placeholder="••••••••"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-green-600 hover:text-green-800"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
             </div>
             {errors.password && (
               <p className="text-red-500 text-sm mt-1">{errors.password}</p>

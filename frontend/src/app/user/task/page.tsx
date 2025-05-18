@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StageToolbar from "@/components/StageToolbar";
 import ProjectDetailsForm from "@/components/project/ProjectDetails";
 import ActivitiesForm from "@/components/project/Activities";
@@ -10,20 +10,23 @@ import FinalSubmitCheck from "@/components/project/Submit";
 import TestimonialsForm from "@/components/project/Testmonials";
 
 import { IResult } from "@/types/user_accounts/IResult";
-
 import { IKpi } from "@/types/user_accounts/IKpi";
-
 import { IActivity } from "@/types/user_accounts/IActivity";
-
 import { IRisk } from "@/types/user_accounts/IRisk";
-
 import { ITestimonial } from "@/types/user_accounts/Itestmonial";
 
-
-
+const STORAGE_KEY = "currentStage";
 
 const Page = () => {
-  const [currentStage, setCurrentStage] = useState<number>(1);
+  // Load initial stage from sessionStorage or default to 1
+  const [currentStage, setCurrentStage] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      const stored = sessionStorage.getItem(STORAGE_KEY);
+      return stored ? parseInt(stored, 10) : 1;
+    }
+    return 1;
+  });
+
   const [completedStages, setCompletedStages] = useState<number[]>([]);
 
   const [projectDetails, setProjectDetails] = useState({
@@ -35,14 +38,9 @@ const Page = () => {
   });
 
   const [activities, setActivities] = useState<IActivity[]>([]);
-
   const [testimonials, setTestimonials] = useState<ITestimonial[]>([]);
-
   const [results, setResults] = useState<IResult[]>([]);
-
-
   const [risks, setRisks] = useState<IRisk[]>([]);
-
   const [kpis, setKpis] = useState<IKpi[]>([]);
 
   const checks = {
@@ -57,6 +55,13 @@ const Page = () => {
     gantt: false,
     photos: false,
   };
+
+  // Persist currentStage to sessionStorage on change
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem(STORAGE_KEY, currentStage.toString());
+    }
+  }, [currentStage]);
 
   const handleStageCompletion = () => {
     if (!completedStages.includes(currentStage)) {
@@ -80,7 +85,7 @@ const Page = () => {
           <ActivitiesForm
             activities={activities}
             onChange={setActivities}
-            onComplete={handleStageCompletion} // if supported
+            onComplete={handleStageCompletion}
           />
         );
       case 3:
@@ -88,7 +93,7 @@ const Page = () => {
           <ResultsForm
             results={results}
             onChange={setResults}
-            onComplete={handleStageCompletion} // if supported
+            onComplete={handleStageCompletion}
           />
         );
       case 4:
