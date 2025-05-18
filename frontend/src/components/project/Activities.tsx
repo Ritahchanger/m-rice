@@ -14,8 +14,8 @@ interface Activity {
 
 interface ActivitiesFormProps {
   activities: Activity[];
-  onComplete: () => void;
   onChange: (updatedActivities: Activity[]) => void;
+  onComplete: () => void;
 }
 
 const statusOptions: Activity["status"][] = [
@@ -27,6 +27,7 @@ const statusOptions: Activity["status"][] = [
 const ActivitiesForm: React.FC<ActivitiesFormProps> = ({
   activities,
   onChange,
+  onComplete,
 }) => {
   const handleActivityChange = (
     index: number,
@@ -56,6 +57,9 @@ const ActivitiesForm: React.FC<ActivitiesFormProps> = ({
     onChange(updated);
   };
 
+  // Optional: you can add validation before allowing onComplete, if needed
+  const canComplete = activities.length > 0;
+
   return (
     <div className="space-y-8 bg-green-50 p-6 rounded-xl border border-green-300 shadow-lg mt-6">
       <h2 className="text-2xl font-bold text-green-700 border-b border-green-300 pb-2">
@@ -72,6 +76,7 @@ const ActivitiesForm: React.FC<ActivitiesFormProps> = ({
               Activity {index + 1}
             </h3>
             <button
+              type="button"
               onClick={() => removeActivity(index)}
               className="text-sm text-red-600 hover:underline"
             >
@@ -173,12 +178,27 @@ const ActivitiesForm: React.FC<ActivitiesFormProps> = ({
         </div>
       ))}
 
-      <button
-        onClick={addActivity}
-        className="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
-      >
-        + Add Activity
-      </button>
+      <div className="flex gap-4">
+        <button
+          type="button"
+          onClick={addActivity}
+          className="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+        >
+          + Add Activity
+        </button>
+        <button
+          type="button"
+          onClick={onComplete}
+          disabled={!canComplete}
+          className={`mt-4 font-semibold px-4 py-2 rounded-md text-white ${
+            canComplete
+              ? "bg-green-600 hover:bg-green-700"
+              : "bg-green-300 cursor-not-allowed"
+          }`}
+        >
+          Save & Continue
+        </button>
+      </div>
     </div>
   );
 };

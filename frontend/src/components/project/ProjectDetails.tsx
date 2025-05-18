@@ -123,6 +123,7 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
       <button
         type="submit"
         className="mt-4 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-sm"
+        onClick={onComplete}
       >
         Submit & Continue
       </button>
