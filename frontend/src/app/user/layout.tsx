@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="user-progress-tracking">
+    <div>
       <div>
         <Navbar />
-        {children}
+        <div className="user-progress-tracking">{children}</div>
       </div>
     </div>
   );

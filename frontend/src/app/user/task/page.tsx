@@ -140,7 +140,7 @@ const Page = () => {
         setCurrentStage={setCurrentStage}
       />
 
-      <div className="mt-8 p-6 bg-white rounded-md shadow border border-neutral-200">
+      <div className="p-6 bg-white rounded-md shadow border border-neutral-200 mt-[100px]">
         <h1 className="text-xl font-semibold mb-4 text-green-700">
           Stage {currentStage}
         </h1>
