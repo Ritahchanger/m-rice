@@ -42,7 +42,7 @@ const StageToolbar: React.FC<StageToolbarProps> = ({
   setCurrentStage,
 }) => {
   return (
-    <div className="flex items-center justify-between overflow-x-auto gap-2 bg-emerald-50 p-4 rounded-md shadow-sm border border-emerald-100">
+    <div className="flex items-center justify-between overflow-x-auto gap-2 bg-emerald-50 p-4 rounded-sm shadow-sm border border-emerald-100">
       {stages.map((stage) => {
         const isCompleted = completedStages.includes(stage.id);
         const isCurrent = currentStage === stage.id;
@@ -57,7 +57,7 @@ const StageToolbar: React.FC<StageToolbarProps> = ({
             disabled={!isUnlocked}
             onClick={() => setCurrentStage(stage.id)}
             className={clsx(
-              "flex items-center gap-2 px-4 py-2 rounded-md whitespace-nowrap transition-all duration-150",
+              "flex items-center gap-2 px-4 py-2 rounded-sm whitespace-nowrap transition-all duration-150",
               isCurrent
                 ? "bg-emerald-600 text-white font-semibold shadow"
                 : isCompleted

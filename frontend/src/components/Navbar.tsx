@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -21,12 +22,12 @@ const Navbar = () => {
           </a>
         </nav> */}
         <div className="flex items-center gap-4">
-          <a
-            href="/login"
+          <Link
+            href="/auth/login"
             className="bg-white text-emerald-600 hover:bg-emerald-100 font-medium py-1.5 px-4 rounded transition text-sm"
           >
             Login
-          </a>
+          </Link>
           <button className="md:hidden text-white">
             <Menu size={24} />
           </button>
