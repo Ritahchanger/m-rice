@@ -16,6 +16,7 @@ interface TestimonialsFormProps {
 const TestimonialsForm: React.FC<TestimonialsFormProps> = ({
   testimonials,
   onChange,
+  onComplete,
 }) => {
   const handleChange = (
     index: number,
@@ -80,12 +81,20 @@ const TestimonialsForm: React.FC<TestimonialsFormProps> = ({
         </div>
       ))}
 
-      <button
-        onClick={addTestimonial}
-        className="mt-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
-      >
-        + Add Testimonial
-      </button>
+      <div className="flex gap-4">
+        <button
+          onClick={addTestimonial}
+          className="mt-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+        >
+          + Add Testimonial
+        </button>
+        <button
+          onClick={onComplete}
+          className="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+        >
+          Save & Continue
+        </button>
+      </div>
     </div>
   );
 };

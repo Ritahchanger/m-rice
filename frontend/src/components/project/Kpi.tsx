@@ -15,15 +15,15 @@ interface KPIFormProps {
   onComplete: () => void;
 }
 
-const KPIForm: React.FC<KPIFormProps> = ({ kpis, onChange }) => {
+const KPIForm: React.FC<KPIFormProps> = ({ kpis, onChange, onComplete }) => {
   const handleChange = (
     index: number,
     field: keyof KPI,
     value: string | number
   ) => {
-    const updated = [...kpis];
-    updated[index] = { ...updated[index], [field]: value };
-    onChange(updated);
+    const updatedKPIs = [...kpis];
+    updatedKPIs[index] = { ...updatedKPIs[index], [field]: value };
+    onChange(updatedKPIs);
   };
 
   const addKPI = () => {
@@ -39,8 +39,8 @@ const KPIForm: React.FC<KPIFormProps> = ({ kpis, onChange }) => {
   };
 
   const removeKPI = (index: number) => {
-    const updated = kpis.filter((_, i) => i !== index);
-    onChange(updated);
+    const updatedKPIs = kpis.filter((_, i) => i !== index);
+    onChange(updatedKPIs);
   };
 
   return (
@@ -57,6 +57,7 @@ const KPIForm: React.FC<KPIFormProps> = ({ kpis, onChange }) => {
           <div className="flex justify-between items-center mb-2">
             <h4 className="font-semibold text-green-700">KPI #{index + 1}</h4>
             <button
+              type="button"
               className="text-red-500 hover:underline text-sm"
               onClick={() => removeKPI(index)}
             >
@@ -128,12 +129,20 @@ const KPIForm: React.FC<KPIFormProps> = ({ kpis, onChange }) => {
         </div>
       ))}
 
-      <div className="mt-4">
+      <div className="flex gap-4 mt-4">
         <button
+          type="button"
           className="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
           onClick={addKPI}
         >
           + Add KPI
+        </button>
+        <button
+          type="button"
+          className="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+          onClick={onComplete}
+        >
+          Save + Continue
         </button>
       </div>
     </div>

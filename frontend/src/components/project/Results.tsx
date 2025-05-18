@@ -16,7 +16,7 @@ interface ResultsFormProps {
   onComplete: () => void;
 }
 
-const ResultsForm: React.FC<ResultsFormProps> = ({ results, onChange }) => {
+const ResultsForm: React.FC<ResultsFormProps> = ({ results, onChange, onComplete }) => {
   const handleChange = (index: number, field: keyof Result, value: string) => {
     const updated = [...results];
     updated[index] = { ...updated[index], [field]: value };
@@ -94,12 +94,20 @@ const ResultsForm: React.FC<ResultsFormProps> = ({ results, onChange }) => {
         </table>
       </div>
 
-      <button
-        onClick={addRow}
-        className="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
-      >
-        + Add Result
-      </button>
+      <div className="flex gap-4">
+        <button
+          onClick={addRow}
+          className="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+        >
+          + Add Result
+        </button>
+        <button
+          onClick={onComplete}
+          className="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+        >
+          Save & Continue
+        </button>
+      </div>
     </div>
   );
 };
