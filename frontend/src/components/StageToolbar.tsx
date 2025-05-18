@@ -1,12 +1,23 @@
 "use client";
 
 import React from "react";
-import { Check, Lock } from "lucide-react";
+import {
+  Check,
+  Lock,
+  FileText,
+  Activity,
+  BarChart2,
+  MessageSquare,
+  ShieldAlert,
+  Target,
+  Send,
+} from "lucide-react";
 import clsx from "clsx";
 
 type Stage = {
   id: number;
   name: string;
+  icon: any;
 };
 
 interface StageToolbarProps {
@@ -16,13 +27,13 @@ interface StageToolbarProps {
 }
 
 const stages: Stage[] = [
-  { id: 1, name: "Project Details" },
-  { id: 2, name: "Activities" },
-  { id: 3, name: "Results" },
-  { id: 4, name: "Testimonials" },
-  { id: 5, name: "Risks" },
-  { id: 6, name: "KPI" },
-  { id: 7, name: "Submit" },
+  { id: 1, name: "Project Details", icon: <FileText size={16} /> },
+  { id: 2, name: "Activities", icon: <Activity size={16} /> },
+  { id: 3, name: "Results", icon: <BarChart2 size={16} /> },
+  { id: 4, name: "Testimonials", icon: <MessageSquare size={16} /> },
+  { id: 5, name: "Risks", icon: <ShieldAlert size={16} /> },
+  { id: 6, name: "KPI", icon: <Target size={16} /> },
+  { id: 7, name: "Submit", icon: <Send size={16} /> },
 ];
 
 const StageToolbar: React.FC<StageToolbarProps> = ({
@@ -31,7 +42,7 @@ const StageToolbar: React.FC<StageToolbarProps> = ({
   setCurrentStage,
 }) => {
   return (
-    <div className="flex items-center justify-between overflow-x-auto gap-2 bg-green-100 p-4 rounded-sm shadow-sm">
+    <div className="flex items-center justify-between overflow-x-auto gap-2 bg-emerald-50 p-4 rounded-md shadow-sm border border-emerald-100">
       {stages.map((stage) => {
         const isCompleted = completedStages.includes(stage.id);
         const isCurrent = currentStage === stage.id;
@@ -46,22 +57,24 @@ const StageToolbar: React.FC<StageToolbarProps> = ({
             disabled={!isUnlocked}
             onClick={() => setCurrentStage(stage.id)}
             className={clsx(
-              "flex items-center gap-2 px-4 py-2 rounded-sm whitespace-nowrap transition-all",
+              "flex items-center gap-2 px-4 py-2 rounded-md whitespace-nowrap transition-all duration-150",
               isCurrent
-                ? "bg-green-600 text-white font-bold"
+                ? "bg-emerald-600 text-white font-semibold shadow"
                 : isCompleted
-                ? "bg-green-400 text-white"
+                ? "bg-emerald-400 text-white"
                 : isUnlocked
-                ? "bg-white text-green-700 border border-green-400"
+                ? "bg-white text-emerald-700 border border-emerald-400"
                 : "bg-gray-200 text-gray-400 cursor-not-allowed"
             )}
           >
             {isCompleted ? (
-              <Check size={18} />
+              <Check size={16} />
             ) : !isUnlocked ? (
-              <Lock size={18} />
-            ) : null}
-            {stage.name}
+              <Lock size={16} />
+            ) : (
+              stage.icon
+            )}
+            <span className="text-sm">{stage.name}</span>
           </button>
         );
       })}

@@ -6,7 +6,7 @@ const Navbar = () => {
     <header className="bg-emerald-600 text-white shadow-md">
       <div className="mx-auto px-4 py-3 flex items-center justify-between">
         <div className="text-xl font-semibold tracking-wide">🌿 M & E</div>
-        <nav className="hidden md:flex gap-6 text-sm">
+        {/* <nav className="hidden md:flex gap-6 text-sm">
           <a href="#" className="hover:text-emerald-200 transition">
             Home
           </a>
@@ -19,7 +19,7 @@ const Navbar = () => {
           <a href="#" className="hover:text-emerald-200 transition">
             Contact
           </a>
-        </nav>
+        </nav> */}
         <div className="flex items-center gap-4">
           <a
             href="/login"
