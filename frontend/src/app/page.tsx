@@ -38,7 +38,7 @@ const HomePage = () => {
 
           {/* Features */}
           <section className="grid md:grid-cols-3 gap-8 mb-20">
-            <div className="rounded-xl p-8 border border-green-200 shadow-sm hover:shadow-md transition">
+            <div className="rounded-sm p-8 border border-green-200 shadow-sm hover:shadow-md transition">
               <div className="flex items-center gap-3 mb-4 text-green-700">
                 <FileText size={24} />
                 <h3 className="text-xl font-semibold">Submit Proposals</h3>
@@ -49,7 +49,7 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div className="rounded-xl p-8 border border-green-200 shadow-sm hover:shadow-md transition">
+            <div className="rounded-sm p-8 border border-green-200 shadow-sm hover:shadow-md transition">
               <div className="flex items-center gap-3 mb-4 text-blue-600">
                 <BarChart2 size={24} />
                 <h3 className="text-xl font-semibold">Track Applications</h3>
@@ -60,7 +60,7 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div className="rounded-xl p-8 border border-green-200 shadow-sm hover:shadow-md transition">
+            <div className="rounded-sm p-8 border border-green-200 shadow-sm hover:shadow-md transition">
               <div className="flex items-center gap-3 mb-4 text-green-600">
                 <ShieldCheck size={24} />
                 <h3 className="text-xl font-semibold">Transparent Process</h3>

@@ -16,7 +16,11 @@ interface ResultsFormProps {
   onComplete: () => void;
 }
 
-const ResultsForm: React.FC<ResultsFormProps> = ({ results, onChange, onComplete }) => {
+const ResultsForm: React.FC<ResultsFormProps> = ({
+  results,
+  onChange,
+  onComplete,
+}) => {
   const handleChange = (index: number, field: keyof Result, value: string) => {
     const updated = [...results];
     updated[index] = { ...updated[index], [field]: value };
@@ -40,21 +44,21 @@ const ResultsForm: React.FC<ResultsFormProps> = ({ results, onChange, onComplete
   };
 
   return (
-    <div className="bg-green-50 p-6 rounded-xl border border-green-300 shadow-lg mt-6">
-      <h2 className="text-2xl font-bold text-green-700 border-b border-green-300 pb-2">
+    <div className="bg-teal-50 p-6 rounded-xl border border-cyan-300 shadow-lg mt-6">
+      <h2 className="text-2xl font-bold text-teal-700 border-b border-cyan-300 pb-2">
         4. Results
       </h2>
 
       <div className="overflow-x-auto mt-4">
-        <table className="min-w-full table-auto border border-green-300 text-sm">
-          <thead className="bg-green-100 text-green-800">
+        <table className="min-w-full table-auto border border-cyan-300 text-sm">
+          <thead className="bg-cyan-100 text-teal-900">
             <tr>
-              <th className="border border-green-300 px-4 py-2">Indicator</th>
-              <th className="border border-green-300 px-4 py-2">Baseline</th>
-              <th className="border border-green-300 px-4 py-2">Target</th>
-              <th className="border border-green-300 px-4 py-2">Result</th>
-              <th className="border border-green-300 px-4 py-2">Status</th>
-              <th className="border border-green-300 px-4 py-2">Action</th>
+              <th className="border border-cyan-300 px-4 py-2">Indicator</th>
+              <th className="border border-cyan-300 px-4 py-2">Baseline</th>
+              <th className="border border-cyan-300 px-4 py-2">Target</th>
+              <th className="border border-cyan-300 px-4 py-2">Result</th>
+              <th className="border border-cyan-300 px-4 py-2">Status</th>
+              <th className="border border-cyan-300 px-4 py-2">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -69,18 +73,18 @@ const ResultsForm: React.FC<ResultsFormProps> = ({ results, onChange, onComplete
                     "status",
                   ] as (keyof Result)[]
                 ).map((field) => (
-                  <td key={field} className="border border-green-300 px-2 py-2">
+                  <td key={field} className="border border-cyan-300 px-2 py-2">
                     <input
                       type="text"
                       value={row[field]}
                       onChange={(e) =>
                         handleChange(index, field, e.target.value)
                       }
-                      className="w-full border border-green-200 rounded-md p-1"
+                      className="w-full border border-cyan-200 rounded-md p-1"
                     />
                   </td>
                 ))}
-                <td className="border border-green-300 text-center">
+                <td className="border border-cyan-300 text-center">
                   <button
                     onClick={() => removeRow(index)}
                     className="text-red-600 hover:underline text-sm"
@@ -97,13 +101,13 @@ const ResultsForm: React.FC<ResultsFormProps> = ({ results, onChange, onComplete
       <div className="flex gap-4">
         <button
           onClick={addRow}
-          className="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="mt-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
         >
           + Add Result
         </button>
         <button
           onClick={onComplete}
-          className="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-4 py-2 rounded-md"
         >
           Save & Continue
         </button>

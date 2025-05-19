@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-gradient-to-r from-green-600 to-blue-600 text-white shadow-md fixed top-0 right-0 left-0 w-full z-50">
-      <div className="mx-auto px-4 py-3 flex items-center justify-between max-w-7xl">
+      <div className="mx-auto px-4 py-3 flex items-center justify-between">
         <div className="text-xl font-bold tracking-wide flex items-center gap-2">
           <span>🌿</span> <span>Meru University</span>
         </div>

@@ -46,15 +46,15 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 bg-gradient-to-br from-green-100 via-white to-green-50  p-6 rounded-2xl "
+      className="space-y-6 bg-gradient-to-br from-green-100 via-white to-blue-50 p-6 rounded-2xl shadow-md"
     >
-      <h2 className="text-3xl font-extrabold text-green-700 border-b border-green-300 pb-2">
+      <h2 className="text-3xl font-extrabold text-teal-700 border-b border-teal-300 pb-2">
         📋 1. Project Details
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-semibold text-green-800">
+          <label className="block text-sm font-semibold text-blue-900">
             🎯 Programme
           </label>
           <input
@@ -62,12 +62,12 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
             name="programme"
             value={details.programme}
             onChange={handleChange}
-            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-blue-300 rounded-lg p-2 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-green-800">
+          <label className="block text-sm font-semibold text-blue-900">
             🏗️ Project Name
           </label>
           <input
@@ -75,12 +75,12 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
             name="projectName"
             value={details.projectName}
             onChange={handleChange}
-            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-blue-300 rounded-lg p-2 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-green-800">
+          <label className="block text-sm font-semibold text-blue-900">
             🧾 Reference
           </label>
           <input
@@ -88,12 +88,12 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
             name="reference"
             value={details.reference}
             onChange={handleChange}
-            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-blue-300 rounded-lg p-2 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-green-800">
+          <label className="block text-sm font-semibold text-blue-900">
             📅 Reporting Period
           </label>
           <input
@@ -102,12 +102,12 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
             value={details.reportingPeriod}
             onChange={handleChange}
             placeholder="e.g. Jan 2024 - Mar 2024"
-            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-blue-300 rounded-lg p-2 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-green-800">
+          <label className="block text-sm font-semibold text-blue-900">
             📌 Date Submitted
           </label>
           <input
@@ -115,7 +115,7 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
             name="dateSubmitted"
             value={details.dateSubmitted}
             onChange={handleChange}
-            className="mt-1 block w-full border border-green-400 rounded-lg p-2 focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
+            className="mt-1 block w-full border border-blue-300 rounded-lg p-2 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-white"
           />
         </div>
       </div>
@@ -123,14 +123,14 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
       <div className="flex gap-4">
         <button
           type="submit"
-          className="mt-6 bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white font-semibold px-8 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+          className="mt-6 bg-gradient-to-r from-green-400 via-teal-500 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white font-semibold px-8 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
         >
           ✅ Submit
         </button>
         <button
           type="submit"
           onClick={onComplete}
-          className="mt-6 bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white font-semibold px-8 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+          className="mt-6 bg-gradient-to-r from-green-400 via-teal-500 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white font-semibold px-8 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
         >
           ✅ Save & Continue
         </button>
