@@ -123,14 +123,14 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
       <div className="flex gap-4">
         <button
           type="submit"
-          className="mt-6 bg-gradient-to-r from-green-400 via-teal-500 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white font-semibold px-8 py-2 rounded-sm shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+          className="global-btn"
         >
           ✅ Submit
         </button>
         <button
           type="submit"
           onClick={onComplete}
-          className="mt-6 bg-gradient-to-r from-green-400 via-teal-500 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white font-semibold px-8 py-2 rounded-sm shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+          className="global-btn"
         >
           ✅ Save & Continue
         </button>

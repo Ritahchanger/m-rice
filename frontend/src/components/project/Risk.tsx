@@ -190,21 +190,21 @@ const RisksForm: React.FC<RisksFormProps> = ({
 
       <div className="flex gap-4 mt-4 flex-wrap">
         <button
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
+          className="global-btn"
           onClick={() => addRisk("Internal")}
           type="button"
         >
           + Add Internal Risk
         </button>
         <button
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
+          className="global-btn"
           onClick={() => addRisk("External")}
           type="button"
         >
           + Add External Risk
         </button>
         <button
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
+          className="global-btn"
           onClick={onComplete}
           disabled={risks.length === 0}
           type="button"

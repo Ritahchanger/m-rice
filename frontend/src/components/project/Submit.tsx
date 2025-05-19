@@ -79,7 +79,7 @@ const FinalSubmitCheck: React.FC<FinalSubmitCheckProps> = ({
       </div>
 
       <button
-        className={`w-full py-2 px-4 rounded-md font-semibold ${
+        className={`w-full py-2 px-4  font-semibold ${
           allComplete && confirmed
             ? "bg-teal-600 hover:bg-teal-700 text-white"
             : "bg-gray-300 text-gray-500 cursor-not-allowed"

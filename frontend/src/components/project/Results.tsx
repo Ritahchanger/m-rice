@@ -101,13 +101,13 @@ const ResultsForm: React.FC<ResultsFormProps> = ({
       <div className="flex gap-4">
         <button
           onClick={addRow}
-          className="mt-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="global-btn"
         >
           + Add Result
         </button>
         <button
           onClick={onComplete}
-          className="mt-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="global-btn"
         >
           Save & Continue
         </button>

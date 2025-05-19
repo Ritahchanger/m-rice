@@ -81,13 +81,13 @@ const TestimonialsForm: React.FC<TestimonialsFormProps> = ({
       <div className="flex gap-4">
         <button
           onClick={addTestimonial}
-          className="mt-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
+          className="global-btn"
         >
           + Add Testimonial
         </button>
         <button
           onClick={onComplete}
-          className="mt-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
+          className="global-btn"
         >
           Save & Continue
         </button>

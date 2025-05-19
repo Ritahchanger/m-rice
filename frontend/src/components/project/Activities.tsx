@@ -176,7 +176,7 @@ const ActivitiesForm: React.FC<ActivitiesFormProps> = ({
         <button
           type="button"
           onClick={addActivity}
-          className="mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="global-btn"
         >
           + Add Activity
         </button>
@@ -184,7 +184,7 @@ const ActivitiesForm: React.FC<ActivitiesFormProps> = ({
           type="button"
           onClick={onComplete}
           disabled={!canComplete}
-          className={`mt-4 font-semibold px-4 py-2 rounded-md text-white ${
+          className={`global-btn ${
             canComplete
               ? "bg-emerald-600 hover:bg-emerald-700"
               : "bg-emerald-300 cursor-not-allowed"

@@ -213,13 +213,18 @@ body.dark .text-blue-700 {
   );
 } */
 
-
-body .project-progress{
-  box-shadow:0 0 5px rgba(0,0,0,0.25);
+body .project-progress {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
 body.dark .bg-slate-200 {
   background-color: #0a0a0a;
+}
+body.dark .stage-nav {
+  background: #1c1c1c;
+}
+body.dark .header {
+  background: #1c1c1c;
 }
 
 body.dark .bg-gradient-from-green-100-via-white-to-blue-50 {
@@ -229,4 +234,21 @@ body.dark .bg-gradient-from-green-100-via-white-to-blue-50 {
     #000000,
     #10102a
   ); /* dark mode gradient */
+}
+
+
+body .global-btn {
+  margin-top: 1.5rem;
+  background: linear-gradient(to right, #22c55e, #14b8a6, #2563eb); 
+  font-weight: 600; 
+  padding: 0.5rem 2rem;
+  border-radius:2px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+body .global-btn button:hover {
+  background: linear-gradient(to right, #22c65e, #14b8a6, #1e40af);
+  transform: scale(1.05);
 }

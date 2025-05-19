@@ -127,18 +127,10 @@ const KPIForm: React.FC<KPIFormProps> = ({ kpis, onChange, onComplete }) => {
       ))}
 
       <div className="flex gap-4 mt-4 flex-wrap">
-        <button
-          type="button"
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
-          onClick={addKPI}
-        >
+        <button type="button" className="global-btn" onClick={addKPI}>
           + Add KPI
         </button>
-        <button
-          type="button"
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
-          onClick={onComplete}
-        >
+        <button type="button" className="global-btn" onClick={onComplete}>
           Save + Continue
         </button>
       </div>
