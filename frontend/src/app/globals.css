@@ -52,7 +52,7 @@ body.dark ::-webkit-scrollbar-thumb:hover {
 
 /* Global Dark Mode */
 body.dark {
-  background-color: #000000; /* pure black */
+  background-color: #0a0a0a; /* pure black */
   color: #d4d4d4; /* subtle soft white */
 }
 
@@ -91,7 +91,7 @@ body.dark .text-emerald-700 {
 
 body.dark .bg-gray-200,
 body.dark .bg-white {
-  background-color: #000000 !important;
+  background: linear-gradient(145deg, #121212, #1c1c1c);
 }
 
 body.dark .text-white {
@@ -166,6 +166,9 @@ body.dark .login select:focus {
 body.dark .border-green-300 {
   border-color: #0b3d0b !important; /* very dark green */
 }
+body.dark .border-neutral-100 {
+  border-color: #0b3d0b !important; /* very dark green */
+}
 
 /* Blue Tailwind Overrides for Dark Theme */
 body.dark .bg-blue-50 {
@@ -198,4 +201,32 @@ body.dark .text-blue-600 {
 
 body.dark .text-blue-700 {
   color: #2563eb !important; /* deeper bright blue */
+}
+
+/* Gradient backgrounds with dark mode overrides */
+/* .bg-gradient-from-green-100-via-white-to-blue-50 {
+  background: linear-gradient(
+    to right,
+    #dcfce7,
+    #ffffff,
+    #eff6ff
+  );
+} */
+
+
+body .project-progress{
+  box-shadow:0 0 5px rgba(0,0,0,0.25);
+}
+
+body.dark .bg-slate-200 {
+  background-color: #0a0a0a;
+}
+
+body.dark .bg-gradient-from-green-100-via-white-to-blue-50 {
+  background: linear-gradient(
+    to right,
+    #101010,
+    #000000,
+    #10102a
+  ); /* dark mode gradient */
 }

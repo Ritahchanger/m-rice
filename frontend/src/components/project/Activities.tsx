@@ -60,16 +60,13 @@ const ActivitiesForm: React.FC<ActivitiesFormProps> = ({
   const canComplete = activities.length > 0;
 
   return (
-    <div className="space-y-8 bg-cyan-50 p-6 rounded-xl border border-cyan-300 shadow-lg mt-6">
+    <div className="space-y-8 p-2 rounded  mt-6">
       <h2 className="text-2xl font-bold text-cyan-700 border-b border-cyan-300 pb-2">
         3. Activities and Outputs
       </h2>
 
       {activities.map((activity, index) => (
-        <div
-          key={index}
-          className="bg-white border border-cyan-200 rounded-lg p-4 space-y-4 shadow-sm"
-        >
+        <div key={index} className=" space-y-4 ">
           <div className="flex justify-between items-center">
             <h3 className="text-lg font-semibold text-cyan-600">
               Activity {index + 1}

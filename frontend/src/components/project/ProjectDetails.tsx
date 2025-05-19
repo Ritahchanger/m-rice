@@ -46,7 +46,7 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 bg-gradient-to-br from-green-100 via-white to-blue-50 p-6 rounded-2xl shadow-md"
+      className="space-y-6 bg-gradient-to-br p-2 rounded-2xl "
     >
       <h2 className="text-3xl font-extrabold text-teal-700 border-b border-teal-300 pb-2">
         📋 1. Project Details
@@ -123,14 +123,14 @@ const ProjectDetailsForm: React.FC<ProjectDetailsFormProps> = ({
       <div className="flex gap-4">
         <button
           type="submit"
-          className="mt-6 bg-gradient-to-r from-green-400 via-teal-500 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white font-semibold px-8 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+          className="mt-6 bg-gradient-to-r from-green-400 via-teal-500 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white font-semibold px-8 py-2 rounded-sm shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
         >
           ✅ Submit
         </button>
         <button
           type="submit"
           onClick={onComplete}
-          className="mt-6 bg-gradient-to-r from-green-400 via-teal-500 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white font-semibold px-8 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
+          className="mt-6 bg-gradient-to-r from-green-400 via-teal-500 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white font-semibold px-8 py-2 rounded-sm shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
         >
           ✅ Save & Continue
         </button>

@@ -38,16 +38,13 @@ const TestimonialsForm: React.FC<TestimonialsFormProps> = ({
   };
 
   return (
-    <div className="bg-teal-50 p-6 rounded-xl border border-teal-300 shadow-lg mt-6">
+    <div className="py-6 rounded-xl  mt-6">
       <h2 className="text-2xl font-bold text-teal-700 border-b border-teal-300 pb-2">
         5. Testimonials
       </h2>
 
       {testimonials.map((testimonial, index) => (
-        <div
-          key={index}
-          className="bg-white p-4 rounded-lg border border-teal-200 my-4"
-        >
+        <div key={index} className="py-4 rounded-lg  my-4">
           <div className="mb-3">
             <label className="block text-teal-700 font-semibold mb-1">
               Name
@@ -84,13 +81,13 @@ const TestimonialsForm: React.FC<TestimonialsFormProps> = ({
       <div className="flex gap-4">
         <button
           onClick={addTestimonial}
-          className="mt-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="mt-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
         >
           + Add Testimonial
         </button>
         <button
           onClick={onComplete}
-          className="mt-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="mt-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
         >
           Save & Continue
         </button>

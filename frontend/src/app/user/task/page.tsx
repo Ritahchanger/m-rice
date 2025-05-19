@@ -138,14 +138,14 @@ const Page = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6  task-page bg-slate-200">
       <StageToolbar
         currentStage={currentStage}
         completedStages={completedStages}
         setCurrentStage={setCurrentStage}
       />
 
-      <div className="p-6 bg-white rounded-md shadow border border-neutral-200 mt-[100px]">
+      <div className="p-6 bg-white rounded-sm shadow  mt-[100px] project-progress">
         <h1 className="text-xl font-semibold mb-4 text-green-700">
           Stage {currentStage}
         </h1>

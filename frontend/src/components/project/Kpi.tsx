@@ -44,16 +44,13 @@ const KPIForm: React.FC<KPIFormProps> = ({ kpis, onChange, onComplete }) => {
   };
 
   return (
-    <div className="bg-green-100 p-6 rounded-xl border border-teal-400 shadow-md mt-6">
+    <div className="py-6  mt-6">
       <h2 className="text-2xl font-bold text-teal-800 border-b border-teal-400 pb-2 mb-4">
         10. Key Performance Indicators (KPIs)
       </h2>
 
       {kpis.map((kpi, index) => (
-        <div
-          key={index}
-          className="bg-white p-4 rounded-lg border border-teal-300 mb-4"
-        >
+        <div key={index} className="py-4 rounded-lg  mb-4">
           <div className="flex justify-between items-center mb-2">
             <h4 className="font-semibold text-teal-800">KPI #{index + 1}</h4>
             <button

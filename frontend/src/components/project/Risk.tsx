@@ -58,16 +58,13 @@ const RisksForm: React.FC<RisksFormProps> = ({
   };
 
   return (
-    <div className="bg-teal-50 p-6 rounded-xl border border-teal-300 shadow mt-6">
+    <div className="py-6 rounded-xl   mt-6">
       <h2 className="text-2xl font-bold text-teal-700 border-b border-teal-300 pb-2">
         9. Risks
       </h2>
 
       {risks.map((risk, index) => (
-        <div
-          key={index}
-          className="bg-white p-4 rounded-lg border border-teal-200 my-4"
-        >
+        <div key={index} className="py-4 rounded my-4">
           <div className="flex justify-between items-center mb-2">
             <h4 className="font-semibold text-teal-700">
               {risk.nature} Risk #{index + 1}
@@ -193,21 +190,21 @@ const RisksForm: React.FC<RisksFormProps> = ({
 
       <div className="flex gap-4 mt-4 flex-wrap">
         <button
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
           onClick={() => addRisk("Internal")}
           type="button"
         >
           + Add Internal Risk
         </button>
         <button
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
           onClick={() => addRisk("External")}
           type="button"
         >
           + Add External Risk
         </button>
         <button
-          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-md"
+          className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-4 py-2 rounded-sm"
           onClick={onComplete}
           disabled={risks.length === 0}
           type="button"

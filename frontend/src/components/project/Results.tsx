@@ -44,7 +44,7 @@ const ResultsForm: React.FC<ResultsFormProps> = ({
   };
 
   return (
-    <div className="bg-teal-50 p-6 rounded-xl border border-cyan-300 shadow-lg mt-6">
+    <div className="py-6 rounded-xl  mt-6">
       <h2 className="text-2xl font-bold text-teal-700 border-b border-cyan-300 pb-2">
         4. Results
       </h2>

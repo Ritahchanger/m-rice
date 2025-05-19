@@ -27,7 +27,7 @@ const FinalSubmitCheck: React.FC<FinalSubmitCheckProps> = ({
   const allComplete = Object.values(checks).every((check) => check);
 
   return (
-    <div className="bg-blue-green-50 p-6 rounded-xl border border-teal-300 shadow-md mt-8">
+    <div className="py-6 rounded-xl  mt-8">
       <h2 className="text-2xl font-bold text-teal-800 border-b border-teal-300 pb-2 mb-4">
         Final Submission Checklist
       </h2>
