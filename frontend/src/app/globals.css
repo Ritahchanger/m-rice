@@ -166,3 +166,36 @@ body.dark .login select:focus {
 body.dark .border-green-300 {
   border-color: #0b3d0b !important; /* very dark green */
 }
+
+/* Blue Tailwind Overrides for Dark Theme */
+body.dark .bg-blue-50 {
+  background-color: #0a0a1a !important; /* very dark navy */
+}
+
+body.dark .bg-blue-100 {
+  background-color: #10102a !important; /* slightly lighter dark blue */
+}
+
+body.dark .bg-blue-400 {
+  background-color: #0b3f6b !important; /* dark blue */
+}
+
+body.dark .bg-blue-600 {
+  background-color: #073557 !important; /* deeper dark blue */
+}
+
+body.dark .border-blue-100 {
+  border-color: #10102a !important;
+}
+
+body.dark .border-blue-300 {
+  border-color: #0c3060 !important;
+}
+
+body.dark .text-blue-600 {
+  color: #3b82f6 !important; /* bright blue */
+}
+
+body.dark .text-blue-700 {
+  color: #2563eb !important; /* deeper bright blue */
+}
