@@ -84,7 +84,7 @@ const Navbar = () => {
                 className="absolute top-[100%] left-[-3rem] bg-white rounded-b-md shadow-md flex flex-col md:hidden"
               >
                 <Link
-                  href="/dashboard"
+                  href="/user/task"
                   onClick={closeMenu}
                   className="text-green-700 hover:bg-green-100 font-medium py-3 px-4 text-sm shadow transition block"
                 >
