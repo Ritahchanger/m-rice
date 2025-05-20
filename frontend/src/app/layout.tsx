@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from "next/font/google";
-import { ThemeProvider } from "@/context/ThemeContext/ThemeContext";
-
+import LayoutClient from "@/components/Layout/Layout";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -22,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable}>
       <body className="font-sans antialiased bg-white text-gray-900">
-        <ThemeProvider>{children}</ThemeProvider>
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );
